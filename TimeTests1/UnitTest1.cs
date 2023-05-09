@@ -138,5 +138,76 @@ namespace TimeTests1
             Assert.AreEqual(expectedStringRepresentation, t.ToString());
         }
         #endregion
+
+        #region Equals ==================================================================
+        [TestMethod, TestCategory("Equals")]
+        public void IEquatable_Implemented_ReturnTrue()
+        {
+            Type t = typeof(Time);
+            Assert.IsTrue(typeof(IEquatable<Time>).IsAssignableFrom(t));
+        }
+
+        [TestMethod, TestCategory("Equals")]
+        public void Equals_ComparisonToNullObject_RetunsFalse()
+        {
+            var t = new Time();
+            object obj = null;
+            Assert.IsFalse(t.Equals(obj));
+        }
+
+        [TestMethod, TestCategory("Equals")]
+        public void Equals_ComparisonToTheSameObject_RetunsTrue()
+        {
+            var t = new Time();
+            Assert.IsTrue(t.Equals(t));
+        }
+
+        [TestMethod, TestCategory("Equals")]
+        public void Equals_ComparisonToDifferentObjects_SameData_ReturnsTrue()
+        {
+            var t1 = new Time(1, 10, 0);
+            var t2 = new Time(1, 10, 0);
+            Assert.IsTrue(t1.Equals(t2));
+        }
+
+        [TestMethod, TestCategory("Equals")]
+        public void Equals_ComparisonToDifferentObjects_DifferentData_ReturnsFalse()
+        {
+            var t1 = new Time(1, 10, 0);
+            var t2 = new Time(11, 25, 30);
+            Assert.IsFalse(t1.Equals(t2));
+        }
+
+        [TestMethod, TestCategory("Equals")]
+        public void EqualSign_ReturnsTrue()
+        {
+            var t1 = new Time(1, 10, 0);
+            Assert.IsTrue(t1 == t1);
+        }
+
+        [TestMethod, TestCategory("Equals")]
+        public void EqualSign_ReturnsFalse()
+        {
+            var t1 = new Time(1, 10, 0);
+            var t2 = new Time(10, 11, 20);
+            Assert.IsFalse(t1 == t2);
+        }
+
+        [TestMethod, TestCategory("Equals")]
+        public void InequalitySign_ReturnsTrue()
+
+        {
+            var t1 = new Time(1, 10, 0);
+            var t2 = new Time(10, 11, 20);
+            Assert.IsTrue(t1 != t2);
+        }
+        [TestMethod, TestCategory("Equals")]
+        public void InequalitySign_ReturnsFalse()
+
+        {
+            var t1 = new Time(1, 10, 0);
+            Assert.IsFalse(t1 != t1);
+        }
+        #endregion
     }
 }

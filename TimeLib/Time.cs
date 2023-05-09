@@ -38,5 +38,24 @@ namespace TimeLib
         {
             return String.Format("{0:d2}:{1:d2}:{2:d2}", Hours, Minutes, Seconds);
         }
+
+        public override bool Equals(object? obj) => obj is Time time && Equals(time);
+
+        public bool Equals(Time other) => (Hours, Minutes, Seconds) == (other.Hours, other.Minutes, other.Seconds);
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Hours, Minutes, Seconds);
+        }
+
+        public static bool operator ==(Time left, Time right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(Time left, Time right)
+        {
+            return !(left == right);
+        }
     }
 }
