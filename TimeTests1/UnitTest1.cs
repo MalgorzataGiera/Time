@@ -126,5 +126,17 @@ namespace TimeTests1
             Time t = new Time(s);
         }
         #endregion
+
+        #region ToString tests ==========================================================
+        [DataTestMethod, TestCategory("String Representation")]
+        [DataRow((byte)10, (byte)32, (byte)17, "10:32:17")]
+        [DataRow((byte)0, (byte)25, (byte)0, "00:25:00")]
+        [DataRow((byte)1, (byte)1, (byte)1, "01:01:01")]
+        public void ToStringMethod(byte h, byte m, byte s, string expectedStringRepresentation)
+        {
+            var t = new Time(h, m, s);
+            Assert.AreEqual(expectedStringRepresentation, t.ToString());
+        }
+        #endregion
     }
 }

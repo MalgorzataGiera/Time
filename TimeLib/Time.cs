@@ -34,5 +34,9 @@ namespace TimeLib
             Minutes = byte.Parse(data[1]);
             Seconds = byte.Parse(data[2]);
         }
+        public override string ToString()
+        {
+            return String.Format("{0:d2}:{1:d2}:{2:d2}", Hours, Minutes, Seconds);
+        }
     }
 }
