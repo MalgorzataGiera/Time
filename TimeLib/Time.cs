@@ -19,12 +19,12 @@ namespace TimeLib
             Minutes = (byte)minutes;
             Seconds = (byte)seconds;
         }
-        public Time()
-        {
-            Hours = 0;
-            Minutes = 0;
-            Seconds = 0;
-        }
+        //public Time()
+        //{
+        //    Hours = 0;
+        //    Minutes = 0;
+        //    Seconds = 0;
+        //}
         public Time(string s) // for string in format hh:mm:ss or hh.mm.ss
         {
             char[] chars = { ':', '.' };
