@@ -1901,6 +1901,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
+      },
+      "TimeLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/TimeLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TimeLib.dll": {}
+        }
       }
     }
   },
@@ -6761,6 +6771,11 @@
         "system.xml.xmldocument.4.3.0.nupkg.sha512",
         "system.xml.xmldocument.nuspec"
       ]
+    },
+    "TimeLib/1.0.0": {
+      "type": "project",
+      "path": "../TimeLib/TimeLib.csproj",
+      "msbuildProject": "../TimeLib/TimeLib.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -6768,6 +6783,7 @@
       "MSTest.TestAdapter >= 2.2.10",
       "MSTest.TestFramework >= 2.2.10",
       "Microsoft.NET.Test.Sdk >= 17.3.2",
+      "TimeLib >= 1.0.0",
       "coverlet.collector >= 3.1.2"
     ]
   },
@@ -6797,7 +6813,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\c#\\#obiektowe\\Time\\Time\\TimeLib\\TimeLib.csproj": {
+              "projectPath": "D:\\c#\\#obiektowe\\Time\\Time\\TimeLib\\TimeLib.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
