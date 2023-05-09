@@ -1,0 +1,15 @@
+C:\Users\gosia\Desktop\Nowy folder\TimeLib\bin\Debug\net6.0\TimeLib.exe
+C:\Users\gosia\Desktop\Nowy folder\TimeLib\bin\Debug\net6.0\TimeLib.deps.json
+C:\Users\gosia\Desktop\Nowy folder\TimeLib\bin\Debug\net6.0\TimeLib.runtimeconfig.json
+C:\Users\gosia\Desktop\Nowy folder\TimeLib\bin\Debug\net6.0\TimeLib.dll
+C:\Users\gosia\Desktop\Nowy folder\TimeLib\bin\Debug\net6.0\TimeLib.pdb
+C:\Users\gosia\Desktop\Nowy folder\TimeLib\obj\Debug\net6.0\TimeLib.csproj.AssemblyReference.cache
+C:\Users\gosia\Desktop\Nowy folder\TimeLib\obj\Debug\net6.0\TimeLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gosia\Desktop\Nowy folder\TimeLib\obj\Debug\net6.0\TimeLib.AssemblyInfoInputs.cache
+C:\Users\gosia\Desktop\Nowy folder\TimeLib\obj\Debug\net6.0\TimeLib.AssemblyInfo.cs
+C:\Users\gosia\Desktop\Nowy folder\TimeLib\obj\Debug\net6.0\TimeLib.csproj.CoreCompileInputs.cache
+C:\Users\gosia\Desktop\Nowy folder\TimeLib\obj\Debug\net6.0\TimeLib.dll
+C:\Users\gosia\Desktop\Nowy folder\TimeLib\obj\Debug\net6.0\refint\TimeLib.dll
+C:\Users\gosia\Desktop\Nowy folder\TimeLib\obj\Debug\net6.0\TimeLib.pdb
+C:\Users\gosia\Desktop\Nowy folder\TimeLib\obj\Debug\net6.0\TimeLib.genruntimeconfig.cache
+C:\Users\gosia\Desktop\Nowy folder\TimeLib\obj\Debug\net6.0\ref\TimeLib.dll
