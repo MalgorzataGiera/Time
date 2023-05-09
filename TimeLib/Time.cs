@@ -57,7 +57,7 @@ namespace TimeLib
         {
             //var this_timeInSeconds = Seconds + Minutes * 60 + Hours * 3600;
             //var other_timeInSeconds = other.Seconds + other.Minutes * 60 + other.Hours * 3600;
-            return (TimeInSeconds(this).CompareTo(TimeInSeconds(other)));
+            return (this.TimeInSeconds()).CompareTo(other.TimeInSeconds()));
         }
 
         public static bool operator <(Time left, Time right)
@@ -80,9 +80,9 @@ namespace TimeLib
             return left.CompareTo(right) >= 0;
         }
 
-        public int TimeInSeconds(Time t)
+        public int TimeInSeconds()
         {
-            return t.Seconds + t.Minutes * 60 + t.Hours * 3600;
+            return this.Seconds + this.Minutes * 60 + this.Hours * 3600;
         }
     }
 }
