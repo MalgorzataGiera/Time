@@ -2,7 +2,7 @@
 
 namespace TimeLib
 {
-    public readonly struct Time
+    public readonly struct Time : IEquatable<Time>, IComparable<Time>
     {
         public byte Hours { get; }
         public byte Minutes { get; }
@@ -56,6 +56,33 @@ namespace TimeLib
         public static bool operator !=(Time left, Time right)
         {
             return !(left == right);
+        }
+
+        public int CompareTo(Time other)
+        {
+            var this_timeInSeconds = Seconds + Minutes * 60 + Hours * 3600;
+            var other_timeInSeconds = other.Seconds + other.Minutes * 60 + other.Hours * 3600;
+            return this_timeInSeconds.CompareTo(other_timeInSeconds);
+        }
+
+        public static bool operator <(Time left, Time right)
+        {
+            return left.CompareTo(right) < 0;
+        }
+
+        public static bool operator <=(Time left, Time right)
+        {
+            return left.CompareTo(right) <= 0;
+        }
+
+        public static bool operator >(Time left, Time right)
+        {
+            return left.CompareTo(right) > 0;
+        }
+
+        public static bool operator >=(Time left, Time right)
+        {
+            return left.CompareTo(right) >= 0;
         }
     }
 }

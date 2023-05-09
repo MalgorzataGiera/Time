@@ -209,5 +209,90 @@ namespace TimeTests1
             Assert.IsFalse(t1 != t1);
         }
         #endregion
+
+        #region Comparison
+        [TestMethod, TestCategory("Comparing")]
+        public void IComparable_Implemented_ReturnTrue()
+        {
+            Type t = typeof(Time);
+            Assert.IsTrue(typeof(IComparable<Time>).IsAssignableFrom(t));
+        }
+
+        [TestMethod, TestCategory("Comparing")]
+        public void Comparison_SmallerThanOtherObject_ReturnsTrue()
+        {
+            var t1 = new Time(1, 10, 0);
+            var t2 = new Time(11, 25, 30);
+            Assert.IsTrue(t1.CompareTo(t2) < 0);
+            Assert.IsTrue(t1 < t2);
+        }
+
+        [TestMethod, TestCategory("Comparing")]
+        public void Comparison_BiggerThanOtherObject_ReturnsTrue()
+        {
+            var t1 = new Time(22, 33, 44);
+            var t2 = new Time(11, 25, 30);
+            Assert.IsTrue(t1.CompareTo(t2) > 0);
+            Assert.IsTrue(t1 > t2);
+        }
+
+        [TestMethod, TestCategory("Comparing")]
+        [DataRow((byte)2, (byte)37, (byte)0, (byte)13, (byte)28, (byte)11)]
+        [DataRow((byte)2, (byte)37, (byte)0, (byte)2, (byte)37, (byte)0)]
+        public void Comparison_SmallerOrEqualToOtherObject_ReturnsTrue(byte h1, byte m1, byte s1, byte h2, byte m2, byte s2)
+        {
+            var t1 = new Time(h1, m1, s1);
+            var t2 = new Time(h2, m2, s2);
+            Assert.IsTrue(t1.CompareTo(t2) <= 0);
+            Assert.IsTrue(t1 <= t2);
+        }
+
+        [TestMethod, TestCategory("Comparing")]
+        [DataRow((byte)21, (byte)38, (byte)0, (byte)21, (byte)37, (byte)0)]
+        [DataRow((byte)21, (byte)37, (byte)0, (byte)21, (byte)37, (byte)0)]
+        public void Comparison_BiggerOrEqualToOtherObject_ReturnsTrue(byte h1, byte m1, byte s1, byte h2, byte m2, byte s2)
+        {
+            var t1 = new Time(h1, m1, s1);
+            var t2 = new Time(h2, m2, s2);
+            Assert.IsTrue(t1.CompareTo(t2) >= 0);
+            Assert.IsTrue(t1 >= t2);
+        }
+
+        [TestMethod, TestCategory("Comparing")]
+        public void Comparison_SmallerThanOtherObject_ReturnsFalse()
+        {
+            var t1 = new Time(11, 25, 30);
+            var t2 = new Time(1, 10, 0);
+            Assert.IsFalse(t1.CompareTo(t2) < 0);
+            Assert.IsFalse(t1 < t2);
+        }
+
+        [TestMethod, TestCategory("Comparing")]
+        public void Comparison_BiggerThanOtherObject_ReturnsFalse()
+        {
+            var t1 = new Time(1, 10, 0);
+            var t2 = new Time(11, 25, 30);
+            Assert.IsFalse(t1.CompareTo(t2) > 0);
+            Assert.IsFalse(t1 > t2);
+        }
+
+        [TestMethod, TestCategory("Comparing")]
+        public void Comparison_SmallerOrEqualToOtherObject_ReturnsFalse()
+        {
+            var t1 = new Time(11, 25, 30);
+            var t2 = new Time(1, 10, 0);
+            Assert.IsFalse(t1.CompareTo(t2) <= 0);
+            Assert.IsFalse(t1 <= t2);
+        }
+
+        [TestMethod, TestCategory("Comparing")]
+        public void Comparison_BiggerOrEqualToOtherObject_ReturnsFalse()
+        {
+            var t1 = new Time(1, 10, 0);
+            var t2 = new Time(11, 25, 30);
+            Assert.IsFalse(t1.CompareTo(t2) >= 0);
+            Assert.IsFalse(t1 >= t2);
+        }
+        #endregion
     }
 }

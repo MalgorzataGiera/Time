@@ -13,3 +13,18 @@ C:\Users\gosia\Desktop\Nowy folder\TimeLib\obj\Debug\net6.0\refint\TimeLib.dll
 C:\Users\gosia\Desktop\Nowy folder\TimeLib\obj\Debug\net6.0\TimeLib.pdb
 C:\Users\gosia\Desktop\Nowy folder\TimeLib\obj\Debug\net6.0\TimeLib.genruntimeconfig.cache
 C:\Users\gosia\Desktop\Nowy folder\TimeLib\obj\Debug\net6.0\ref\TimeLib.dll
+D:\c#\#obiektowe\Time\Time\TimeLib\bin\Debug\net6.0\TimeLib.exe
+D:\c#\#obiektowe\Time\Time\TimeLib\bin\Debug\net6.0\TimeLib.deps.json
+D:\c#\#obiektowe\Time\Time\TimeLib\bin\Debug\net6.0\TimeLib.runtimeconfig.json
+D:\c#\#obiektowe\Time\Time\TimeLib\bin\Debug\net6.0\TimeLib.dll
+D:\c#\#obiektowe\Time\Time\TimeLib\bin\Debug\net6.0\TimeLib.pdb
+D:\c#\#obiektowe\Time\Time\TimeLib\obj\Debug\net6.0\TimeLib.csproj.AssemblyReference.cache
+D:\c#\#obiektowe\Time\Time\TimeLib\obj\Debug\net6.0\TimeLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\c#\#obiektowe\Time\Time\TimeLib\obj\Debug\net6.0\TimeLib.AssemblyInfoInputs.cache
+D:\c#\#obiektowe\Time\Time\TimeLib\obj\Debug\net6.0\TimeLib.AssemblyInfo.cs
+D:\c#\#obiektowe\Time\Time\TimeLib\obj\Debug\net6.0\TimeLib.csproj.CoreCompileInputs.cache
+D:\c#\#obiektowe\Time\Time\TimeLib\obj\Debug\net6.0\TimeLib.dll
+D:\c#\#obiektowe\Time\Time\TimeLib\obj\Debug\net6.0\refint\TimeLib.dll
+D:\c#\#obiektowe\Time\Time\TimeLib\obj\Debug\net6.0\TimeLib.pdb
+D:\c#\#obiektowe\Time\Time\TimeLib\obj\Debug\net6.0\TimeLib.genruntimeconfig.cache
+D:\c#\#obiektowe\Time\Time\TimeLib\obj\Debug\net6.0\ref\TimeLib.dll
