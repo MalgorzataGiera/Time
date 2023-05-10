@@ -83,5 +83,14 @@ namespace TimeLib
         {
             return this.Seconds + this.Minutes * 60 + this.Hours * 3600;
         }
+
+        public Time Plus(TimePeriod t)
+        {
+            var sumOfSeconds = TimeInSeconds() + t.NumberOfSeconds;
+            var h = (sumOfSeconds / 3600) % 24;
+            var m = ((sumOfSeconds % 3600) / 60) % 60;
+            var s = ((sumOfSeconds % 3600) % 60);
+            return new Time((byte)h, (byte)m, (byte)s);
+        }
     }
 }
