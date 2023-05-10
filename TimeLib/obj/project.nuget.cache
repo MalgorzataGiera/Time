@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "p78ND0Z7LjhpU2b6r5ATd0+mwj1HZgh+0k+Jpd2JezFAXfHlgfwuoINA0DjRDX/nZCoWU7iyc163C91Si6ymXw==",
+  "dgSpecHash": "H0bN72DyEKC2AaNhwQzlBdd+BY5/UzFoH9U3Ru2iH/wMAdb4CFweLVnfJm46kjf3zLOWeI4+Cbd3O87VfN/5ag==",
   "success": true,
-  "projectFilePath": "D:\\c#\\#obiektowe\\Time\\Time\\TimeLib\\TimeLib.csproj",
+  "projectFilePath": "D:\\c#\\#obiektowe\\fromGit\\Time\\TimeLib\\TimeLib.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

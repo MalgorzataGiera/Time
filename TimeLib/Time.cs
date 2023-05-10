@@ -24,6 +24,7 @@ namespace TimeLib
         {
             char[] chars = { ':', '.' };
             string[] data = s.Split(chars, StringSplitOptions.RemoveEmptyEntries);
+            if (data.Length > 3) throw new FormatException("You cannot enter more than 3 parameters");
             if (byte.Parse(data[0]) > 23 || byte.Parse(data[1]) > 59 || byte.Parse(data[2]) > 59) throw new ArgumentOutOfRangeException();
             Hours = byte.Parse(data[0]);
             Minutes = byte.Parse(data[1]);
@@ -55,9 +56,7 @@ namespace TimeLib
 
         public int CompareTo(Time other)
         {
-            //var this_timeInSeconds = Seconds + Minutes * 60 + Hours * 3600;
-            //var other_timeInSeconds = other.Seconds + other.Minutes * 60 + other.Hours * 3600;
-            return (this.TimeInSeconds()).CompareTo(other.TimeInSeconds()));
+            return (this.TimeInSeconds()).CompareTo(other.TimeInSeconds());
         }
 
         public static bool operator <(Time left, Time right)

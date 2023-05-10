@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tfL1yhUM/+3jKQCL4d+KG87kDlElLsTfoufobB3rSGjlgu7TZNQgm8na/WmL4c4Hc/811aT+oOLx2a8/2VSLEg==",
+  "dgSpecHash": "MRf5DITI6r1P0IlqoxRUqGiRaJhZtbjibr2OG2DG1mKk+Joz3K48z1U6btbzsGlKDCUK09f6BlfPNzS6iHCOEA==",
   "success": true,
-  "projectFilePath": "D:\\c#\\#obiektowe\\Time\\Time\\TimeTests1\\TimeTests1.csproj",
+  "projectFilePath": "D:\\c#\\#obiektowe\\fromGit\\Time\\TimeTests1\\TimeTests1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gosia\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\gosia\\.nuget\\packages\\microsoft.codecoverage\\17.3.2\\microsoft.codecoverage.17.3.2.nupkg.sha512",

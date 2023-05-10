@@ -69,6 +69,15 @@ namespace TimeTests1
             Assert.AreEqual((byte)11, t.Seconds);
         }
 
+        [DataTestMethod, TestCategory("Constructors")]
+        [DataRow("12:0:0:09")]
+        [DataRow("0:13.9:0")]
+        [ExpectedException(typeof(FormatException))]
+        public void Constructor_StringParam_FormatException(string s)
+        {
+            Time t = new Time(s);
+        }
+
         // ---------
 
         [DataTestMethod, TestCategory("Constructors")]
