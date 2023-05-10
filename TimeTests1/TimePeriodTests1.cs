@@ -316,6 +316,36 @@ namespace TimeTests1
             var expectedNewTime = new TimePeriod(26, 20, 00);
             Assert.AreEqual(expectedNewTime, tP1 + tP2);
         }
+
+        [DataTestMethod, TestCategory("Subtraction")]
+        [DataRow(22, 10, 0, 0, 10, 0, 22, 0, 0)]
+        [DataRow(0, 0, 0, 0, 0, 1, 23, 59, 59)]
+        [DataRow(0, 0, 0, 1, 1, 1, 22, 58, 59)]
+        public void SubstractingTimePeriod(long h1, long m1, long s1, long h2, long m2, long s2, long h3, long m3, long s3)
+        {
+            var tP1 = new TimePeriod(h1, m1, s1);
+            var tP2 = new TimePeriod(h2, m2, s2);
+            var expectedNewTime = new TimePeriod(h3, m3, s3);
+            Assert.AreEqual(expectedNewTime, tP1.Minus(tP2));
+        }
+
+        [TestMethod, TestCategory("Subtraction")]
+        public void StaticMethod_SubstructingTimePeriod()
+        {
+            var t = new Time(0, 0, 0);
+            var tPeriod = new TimePeriod(0, 1, 1);
+            var expectedNewTime = new Time(23, 58, 59);
+            Assert.AreEqual(expectedNewTime, Time.Minus(t, tPeriod));
+        }
+
+        [TestMethod, TestCategory("Subtraction")]
+        public void MinusOperator()
+        {
+            var t = new Time(0, 0, 0);
+            var tPeriod = new TimePeriod(0, 1, 1);
+            var expectedNewTime = new Time(23, 58, 59);
+            Assert.AreEqual(expectedNewTime, t - tPeriod);
+        }
         #endregion
     }
 }
