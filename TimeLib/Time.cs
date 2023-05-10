@@ -96,5 +96,32 @@ namespace TimeLib
         public static Time Plus(Time t, TimePeriod tPeriod) => t.Plus(tPeriod);
 
         public static Time operator +(Time t, TimePeriod tPeriod) => t.Plus(tPeriod);
+
+        public Time Minus(TimePeriod t)
+        {
+            if (t.NumberOfSeconds == 0) return this;
+            var sumOfSeconds = TimeInSeconds() - t.NumberOfSeconds;
+            var h = (sumOfSeconds / 3600) % 24;
+            if (h <= 0) h = (24 + h) % 24;
+            var m = ((sumOfSeconds % 3600) / 60) % 60;
+            if (m <= 0)
+            {
+                m = 60 + m;
+                if (h == 0) h = 23;
+                else h = h - 1;
+            }
+            var s = ((sumOfSeconds % 3600) % 60);
+            if (s <= 0)
+            {
+                s = 60 + s;
+                if (m == 0) m = 59;
+                else m = m - 1;
+            }
+            return new Time((byte)h, (byte)m, (byte)s);
+        }
+
+        public static Time Minus(Time t, TimePeriod tPeriod) => t.Minus(tPeriod);
+
+        public static Time operator -(Time t, TimePeriod tPeriod) => t.Minus(tPeriod);
     }
 }
