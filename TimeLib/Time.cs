@@ -92,5 +92,9 @@ namespace TimeLib
             var s = ((sumOfSeconds % 3600) % 60);
             return new Time((byte)h, (byte)m, (byte)s);
         }
+
+        public static Time Plus(Time t, TimePeriod tPeriod) => t.Plus(tPeriod);
+
+        public static Time operator +(Time t, TimePeriod tPeriod) => t.Plus(tPeriod);
     }
 }
