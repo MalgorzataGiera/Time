@@ -1,6 +1,9 @@
 ﻿using TimeLib;
 
-Time t1 = new Time(1);
-TimePeriod t2 = new TimePeriod(0, 12, 1);
-Time t3 = t1.Plus(t2);
-Console.WriteLine(t3);
+var tP1 = new TimePeriod(24, 00, 00);
+var tP2 = new TimePeriod(2, 20, 0);
+Console.WriteLine(tP1.NumberOfSeconds);
+Console.WriteLine(tP2.NumberOfSeconds);
+var expectedNewTime = tP1.Plus(tP2);
+Console.WriteLine(expectedNewTime);
+Console.WriteLine(94800%3600 / 60);

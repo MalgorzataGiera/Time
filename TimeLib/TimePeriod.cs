@@ -84,5 +84,17 @@ namespace TimeLib
             return left.CompareTo(right) >= 0;
         }
 
+        public TimePeriod Plus (TimePeriod tP1)
+        {
+            var sumOfSeconds = NumberOfSeconds + tP1.NumberOfSeconds;
+            var h = sumOfSeconds / 3600;
+            var m = (sumOfSeconds % 3600) / 60;
+            var s = sumOfSeconds % 60;
+            return new TimePeriod(h, m, s);
+        }
+
+        public static TimePeriod Plus(TimePeriod tP1, TimePeriod tp2) => tP1.Plus(tp2);
+
+        public static TimePeriod operator +(TimePeriod left, TimePeriod right) => left.Plus(right);
     }
 }

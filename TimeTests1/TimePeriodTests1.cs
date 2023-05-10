@@ -285,5 +285,37 @@ namespace TimeTests1
             Assert.IsFalse(t1 >= t2);
         }
         #endregion
+
+        #region arithmetic operations ===================================================
+        [DataTestMethod, TestCategory("Addition")]
+        [DataRow(24, 0, 0, 2, 25, 0, 26, 25, 0)]
+        [DataRow(23, 59, 59, 0, 0, 1, 24, 0, 0)]
+        [DataRow(0, 0, 0, 0, 0, 0, 0, 0, 0)]
+        public void AddingTimePeriodToTimePeriod(long h1, long m1, long s1, long h2, long m2, long s2, long h3, long m3, long s3)
+        {
+            var tP1 = new TimePeriod(h1, m1, s1);
+            var tP2 = new TimePeriod(h2, m2, s2);
+            var expectedNewTime = new TimePeriod(h3, m3, s3);
+            Assert.AreEqual(expectedNewTime, tP1.Plus(tP2));
+        }
+        
+        [TestMethod, TestCategory("Addition")]
+        public void StaticMethod_AddingTimePeriod()
+        {
+            var tP1 = new TimePeriod(24, 0, 0);
+            var tP2 = new TimePeriod(2, 20, 0);
+            var expectedNewTime = new TimePeriod(26, 20, 00);
+            Assert.AreEqual(expectedNewTime, TimePeriod.Plus(tP1, tP2));
+        }
+
+        [TestMethod, TestCategory("Addition")]
+        public void PlusOperator()
+        {
+            var tP1 = new TimePeriod(24, 0, 0);
+            var tP2 = new TimePeriod(2, 20, 0);
+            var expectedNewTime = new TimePeriod(26, 20, 00);
+            Assert.AreEqual(expectedNewTime, tP1 + tP2);
+        }
+        #endregion
     }
 }

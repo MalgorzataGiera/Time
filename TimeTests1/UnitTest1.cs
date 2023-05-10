@@ -307,9 +307,9 @@ namespace TimeTests1
         #region arithmetic operations ===================================================
         [DataTestMethod, TestCategory("Addition")]
         [DataRow((byte)0, (byte)0, (byte)0, 1, 1, 1, (byte)1, (byte)1, (byte)1)]
-        //[DataRow((byte)0, (byte)0, (byte)0, 32, 0, 0, (byte)8, (byte)0, (byte)0)]
-        //[DataRow((byte)23, (byte)59, (byte)59, 0, 0, 1, (byte)0, (byte)0, (byte)0)]
-        //[DataRow((byte)0, (byte)0, (byte)0, 0, 0, 0, (byte)0, (byte)0, (byte)0)]
+        [DataRow((byte)0, (byte)0, (byte)0, 32, 0, 0, (byte)8, (byte)0, (byte)0)]
+        [DataRow((byte)23, (byte)59, (byte)59, 0, 0, 1, (byte)0, (byte)0, (byte)0)]
+        [DataRow((byte)0, (byte)0, (byte)0, 0, 0, 0, (byte)0, (byte)0, (byte)0)]
         public void AddingTimePeriod(byte h1, byte m1, byte s1, long h2, long m2, long s2,
             byte h3, byte m3, byte s3)
         {
