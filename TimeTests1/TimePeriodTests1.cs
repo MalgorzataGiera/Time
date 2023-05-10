@@ -117,7 +117,18 @@ namespace TimeTests1
         {
             TimePeriod t = new TimePeriod(s);
         }
+        #endregion
 
+        #region ToString tests ==========================================================
+        [DataTestMethod, TestCategory("String Representation")]
+        [DataRow(10, 32, 17, "10:32:17")]
+        [DataRow(129, 58, 12, "129:58:12")]
+        [DataRow(29, 58, 00, "29:58:00")]
+        public void ToStringMethod(long h, long m, long s, string expectedStringRepresentation)
+        {
+            var t = new TimePeriod(h, m, s);
+            Assert.AreEqual(expectedStringRepresentation, t.ToString());
+        }
         #endregion
     }
 }

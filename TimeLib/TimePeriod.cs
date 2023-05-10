@@ -31,5 +31,13 @@ namespace TimeLib
             var seconds = long.Parse(data[2]);
             NumberOfSeconds = hours * 3600 + minutes * 60 + seconds;
         }
+
+        public override string ToString()
+        {
+            long hours = NumberOfSeconds / 3600;
+            long minutes = (NumberOfSeconds % 3600) / 60;
+            long seconds = (NumberOfSeconds % 3600) % 60;
+            return String.Format("{0:d2}:{1:d2}:{2:d2}", hours, minutes, seconds);
+        }
     }
 }
