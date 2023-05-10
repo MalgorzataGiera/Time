@@ -1,7 +1,7 @@
 ﻿
 namespace TimeLib
 {
-    public readonly struct TimePeriod : IEquatable<TimePeriod>
+    public readonly struct TimePeriod : IEquatable<TimePeriod>, IComparable<TimePeriod>
     {
         public long NumberOfSeconds { get; }
         public TimePeriod(long? hours = null, long? minutes = null, long? seconds = null)
@@ -58,5 +58,31 @@ namespace TimeLib
         {
             return !(left == right);
         }
+
+        public int CompareTo(TimePeriod other)
+        {
+            return (NumberOfSeconds.CompareTo(other.NumberOfSeconds));
+        }
+
+        public static bool operator <(TimePeriod left, TimePeriod right)
+        {
+            return left.CompareTo(right) < 0;
+        }
+
+        public static bool operator <=(TimePeriod left, TimePeriod right)
+        {
+            return left.CompareTo(right) <= 0;
+        }
+
+        public static bool operator >(TimePeriod left, TimePeriod right)
+        {
+            return left.CompareTo(right) > 0;
+        }
+
+        public static bool operator >=(TimePeriod left, TimePeriod right)
+        {
+            return left.CompareTo(right) >= 0;
+        }
+
     }
 }
