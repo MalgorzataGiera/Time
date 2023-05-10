@@ -1,7 +1,7 @@
 ﻿
 namespace TimeLib
 {
-    public readonly struct TimePeriod
+    public readonly struct TimePeriod : IEquatable<TimePeriod>
     {
         public long NumberOfSeconds { get; }
         public TimePeriod(long? hours = null, long? minutes = null, long? seconds = null)
@@ -38,6 +38,25 @@ namespace TimeLib
             long minutes = (NumberOfSeconds % 3600) / 60;
             long seconds = (NumberOfSeconds % 3600) % 60;
             return String.Format("{0:d2}:{1:d2}:{2:d2}", hours, minutes, seconds);
+        }
+
+        public override bool Equals(object? obj) => obj is TimePeriod time && Equals(time);
+
+        public bool Equals(TimePeriod other) => (NumberOfSeconds) == (other.NumberOfSeconds);
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(NumberOfSeconds);
+        }
+
+        public static bool operator ==(TimePeriod left, TimePeriod right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(TimePeriod left, TimePeriod right)
+        {
+            return !(left == right);
         }
     }
 }

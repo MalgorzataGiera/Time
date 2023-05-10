@@ -130,5 +130,73 @@ namespace TimeTests1
             Assert.AreEqual(expectedStringRepresentation, t.ToString());
         }
         #endregion
+
+        #region Equals ==================================================================
+        [TestMethod, TestCategory("Equals")]
+        public void IEquatable_Implemented_ReturnTrue()
+        {
+            Type t = typeof(TimePeriod);
+            Assert.IsTrue(typeof(IEquatable<TimePeriod>).IsAssignableFrom(t));
+        }
+
+        [TestMethod, TestCategory("Equals")]
+        public void Equals_ComparisonToTheSameObject_RetunsTrue()
+        {
+            var t = new TimePeriod();
+            Assert.IsTrue(t.Equals(t));
+        }
+
+        [TestMethod, TestCategory("Equals")]
+        [DataRow(1, 10, 0, 1, 10, 0)]
+        [DataRow(2, 0, 0, 0, 120, 0)]
+        [DataRow(0, 10, 0, 0, 0, 600)]
+        public void Equals_ComparisonToDifferentObjects_SameData_ReturnsTrue(long h1, long m1, long s1, long h2, long m2, long s2)
+        {
+            var t1 = new TimePeriod(h1, m1, s1);
+            var t2 = new TimePeriod(h2, m2, s2);
+            Assert.IsTrue(t1.Equals(t2));
+        }
+
+        [TestMethod, TestCategory("Equals")]
+        public void Equals_ComparisonToDifferentObjects_DifferentData_ReturnsFalse()
+        {
+            var t1 = new TimePeriod(1, 10, 0);
+            var t2 = new TimePeriod(11, 25, 30);
+            Assert.IsFalse(t1.Equals(t2));
+        }
+
+        [TestMethod, TestCategory("Equals")]
+        public void EqualSign_ReturnsTrue()
+        {
+            var t1 = new TimePeriod(1, 10, 0);
+            var t2 = new TimePeriod(1, 10, 0);
+            Assert.IsTrue(t1 == t2);
+        }
+
+        [TestMethod, TestCategory("Equals")]
+        public void EqualSign_ReturnsFalse()
+        {
+            var t1 = new TimePeriod(1, 10, 0);
+            var t2 = new TimePeriod(10, 11, 20);
+            Assert.IsFalse(t1 == t2);
+        }
+
+        [TestMethod, TestCategory("Equals")]
+        public void InequalitySign_ReturnsTrue()
+
+        {
+            var t1 = new TimePeriod(1, 10, 0);
+            var t2 = new TimePeriod(10, 11, 20);
+            Assert.IsTrue(t1 != t2);
+        }
+        [TestMethod, TestCategory("Equals")]
+        public void InequalitySign_ReturnsFalse()
+
+        {
+            var t1 = new TimePeriod(1, 10, 0);
+            var t2 = new TimePeriod(0, 65, 300);
+            Assert.IsFalse(t1 != t2);
+        }
+        #endregion
     }
 }
