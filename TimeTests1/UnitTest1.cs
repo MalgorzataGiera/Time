@@ -146,6 +146,14 @@ namespace TimeTests1
             var t = new Time(h, m, s);
             Assert.AreEqual(expectedStringRepresentation, t.ToString());
         }
+
+        [TestMethod, TestCategory("String Representation")]
+        public void Constructor_TimeToStringParam()
+        {
+            var t = new Time(1, 2, 1);
+            var t2 = new Time(t.ToString());
+            Assert.AreEqual(t, t2);
+        }
         #endregion
 
         #region Equals ==================================================================
