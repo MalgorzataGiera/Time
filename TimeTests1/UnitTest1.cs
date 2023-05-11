@@ -375,6 +375,28 @@ namespace TimeTests1
             var expectedNewTime = new Time(23, 58, 59);
             Assert.AreEqual(expectedNewTime, t - tPeriod);
         }
+
+        [DataTestMethod, TestCategory("Multiplication")]
+        [DataRow((byte)0, (byte)0, (byte)0, 1, (byte)0, (byte)0, (byte)0)]
+        [DataRow((byte)1, (byte)1, (byte)1, 0, (byte)0, (byte)0, (byte)0)]
+        [DataRow((byte)14, (byte)0, (byte)0, 2, (byte)4, (byte)0, (byte)0)]
+        [DataRow((byte)14, (byte)59, (byte)59, 2, (byte)5, (byte)59, (byte)58)]
+        [DataRow((byte)12, (byte)0, (byte)0, 2, (byte)0, (byte)0, (byte)0)]
+        public void MultiplicationTimePeriodByNumber(byte h1, byte m1, byte s1, int k,
+            byte h2, byte m2, byte s2)
+        {
+            var t = new Time(h1, m1, s1);
+            var expectedTime = new Time(h2, m2, s2);
+            Assert.AreEqual(expectedTime, t * k);
+        }
+
+        [TestMethod, TestCategory("Multiplication")]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void MultiplicationTimePeriodByWrongNumber()
+        {
+            var t = new Time(1, 1, 1);
+            var t2 = t * -1;
+        }
         #endregion
     }
 }

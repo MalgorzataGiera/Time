@@ -123,5 +123,15 @@ namespace TimeLib
         public static Time Minus(Time t, TimePeriod tPeriod) => t.Minus(tPeriod);
 
         public static Time operator -(Time t, TimePeriod tPeriod) => t.Minus(tPeriod);
+
+        public static Time operator *(Time t, int k)
+        {
+            if (k < 0) throw new ArgumentOutOfRangeException("You cannot multiply type Time by a negative number");
+            var newTimeInSeconds = t.TimeInSeconds() * k;
+            var h = (newTimeInSeconds / 3600) % 24;
+            var m = ((newTimeInSeconds % 3600) / 60) % 60;
+            var s = ((newTimeInSeconds % 3600) % 60);
+            return new Time((byte)h, (byte)m, (byte)s);
+        }
     }
 }
