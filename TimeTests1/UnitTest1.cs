@@ -14,7 +14,7 @@ namespace TimeTests1
             Assert.AreEqual((byte)0, t.Seconds);
         }
 
-        [TestMethod, TestCategory("Constructors")]
+        [DataTestMethod, TestCategory("Constructors")]
         [DataRow((byte)1, (byte)25, (byte)13)]
         [DataRow((byte)01, (byte)25, (byte)13)]
         public void Constructor_3params(byte h, byte m, byte s)
@@ -25,7 +25,7 @@ namespace TimeTests1
             Assert.AreEqual(s, t.Seconds);
         }
 
-        [TestMethod, TestCategory("Constructors")]
+        [DataTestMethod, TestCategory("Constructors")]
         [DataRow((byte)13, (byte)7)]
         [DataRow((byte)13, (byte)07)]
         public void Constructor_2params(byte h, byte m)
@@ -36,7 +36,7 @@ namespace TimeTests1
             Assert.AreEqual((byte)0, t.Seconds);
         }
 
-        [TestMethod, TestCategory("Constructors")]
+        [DataTestMethod, TestCategory("Constructors")]
         [DataRow((byte)59)]
         [DataRow((byte)09)]
         public void Constructor_1param(byte m)
@@ -48,22 +48,18 @@ namespace TimeTests1
         }
 
         [TestMethod, TestCategory("Constructors")]
-        [DataRow("  11:  11 :11    ")]
-        public void Constructor_StringParam_ColonMark(string s)
+        public void Constructor_StringParam_ColonMark()
         {
-
-            Time t = new Time(s);
+            Time t = new Time("  11:  11 :11    ");
             Assert.AreEqual((byte)11, t.Hours);
             Assert.AreEqual((byte)11, t.Minutes);
             Assert.AreEqual((byte)11, t.Seconds);
         }
 
         [TestMethod, TestCategory("Constructors")]
-        [DataRow("  11. 11.11    ")]
-        public void Constructor_StringParam_DotMark(string s)
+        public void Constructor_StringParam_DotMark()
         {
-
-            Time t = new Time(s);
+            Time t = new Time("  11. 11.11    ");
             Assert.AreEqual((byte)11, t.Hours);
             Assert.AreEqual((byte)11, t.Minutes);
             Assert.AreEqual((byte)11, t.Seconds);
@@ -253,7 +249,7 @@ namespace TimeTests1
             Assert.IsTrue(t1 > t2);
         }
 
-        [TestMethod, TestCategory("Comparing")]
+        [DataTestMethod, TestCategory("Comparing")]
         [DataRow((byte)2, (byte)37, (byte)0, (byte)13, (byte)28, (byte)11)]
         [DataRow((byte)2, (byte)37, (byte)0, (byte)2, (byte)37, (byte)0)]
         public void Comparison_SmallerOrEqualToOtherObject_ReturnsTrue(byte h1, byte m1, byte s1, byte h2, byte m2, byte s2)
@@ -264,7 +260,7 @@ namespace TimeTests1
             Assert.IsTrue(t1 <= t2);
         }
 
-        [TestMethod, TestCategory("Comparing")]
+        [DataTestMethod, TestCategory("Comparing")]
         [DataRow((byte)21, (byte)38, (byte)0, (byte)21, (byte)37, (byte)0)]
         [DataRow((byte)21, (byte)37, (byte)0, (byte)21, (byte)37, (byte)0)]
         public void Comparison_BiggerOrEqualToOtherObject_ReturnsTrue(byte h1, byte m1, byte s1, byte h2, byte m2, byte s2)

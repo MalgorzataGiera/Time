@@ -12,7 +12,7 @@ namespace TimeTests1
             Assert.AreEqual(0, t.NumberOfSeconds);
         }
 
-        [TestMethod, TestCategory("Constructors")]
+        [DataTestMethod, TestCategory("Constructors")]
         [DataRow(1, 25, 31, 5131)]
         [DataRow(0, 15, 02, 902)]
         [DataRow(32, 15, 00, 116100)]
@@ -22,7 +22,7 @@ namespace TimeTests1
             Assert.AreEqual(expectedNumOfSec, t.NumberOfSeconds);
         }
 
-        [TestMethod, TestCategory("Constructors")]
+        [DataTestMethod, TestCategory("Constructors")]
         [DataRow(2, 23, 8580)]
         [DataRow(10, 15, 36900)]
         [DataRow(32, 64, 119040)]
@@ -32,7 +32,7 @@ namespace TimeTests1
             Assert.AreEqual(expectedNumOfSec, t.NumberOfSeconds);
         }
 
-        [TestMethod, TestCategory("Constructors")]
+        [DataTestMethod, TestCategory("Constructors")]
         [DataRow(7, 420)]
         [DataRow(123, 7380)]
         public void Constructor_1param(long m, long expectedNumOfSec)
@@ -41,7 +41,7 @@ namespace TimeTests1
             Assert.AreEqual(expectedNumOfSec, t.NumberOfSeconds);
         }
 
-        [TestMethod, TestCategory("Constructors")]
+        [DataTestMethod, TestCategory("Constructors")]
         [DataRow("  11:  11 :11    ", 40271)]
         [DataRow("  115:  51 :00    ", 417060)]
         [DataRow("  10.  81 :17    ", 40877)]
@@ -53,7 +53,7 @@ namespace TimeTests1
             Assert.AreEqual(expectedNumOfSec, t.NumberOfSeconds);
         }
 
-        [TestMethod, TestCategory("Constructors")]
+        [DataTestMethod, TestCategory("Constructors")]
         [DataRow((byte)7, (byte)20, (byte)9, (byte)20, 7200)]
         [DataRow((byte)12, (byte)23, (byte)13, (byte)30, 4020)]
         [DataRow((byte)1, (byte)00, (byte)00, (byte)00, 82800)]
@@ -154,7 +154,7 @@ namespace TimeTests1
             Assert.IsTrue(t.Equals(t));
         }
 
-        [TestMethod, TestCategory("Equals")]
+        [DataTestMethod, TestCategory("Equals")]
         [DataRow(1, 10, 0, 1, 10, 0)]
         [DataRow(2, 0, 0, 0, 120, 0)]
         [DataRow(0, 10, 0, 0, 0, 600)]
@@ -191,15 +191,14 @@ namespace TimeTests1
 
         [TestMethod, TestCategory("Equals")]
         public void InequalitySign_ReturnsTrue()
-
         {
             var t1 = new TimePeriod(1, 10, 0);
             var t2 = new TimePeriod(10, 11, 20);
             Assert.IsTrue(t1 != t2);
         }
+
         [TestMethod, TestCategory("Equals")]
         public void InequalitySign_ReturnsFalse()
-
         {
             var t1 = new TimePeriod(1, 10, 0);
             var t2 = new TimePeriod(0, 65, 300);
@@ -233,7 +232,7 @@ namespace TimeTests1
             Assert.IsTrue(t1 > t2);
         }
 
-        [TestMethod, TestCategory("Comparing")]
+        [DataTestMethod, TestCategory("Comparing")]
         [DataRow(12, 00, 00, 15, 15, 22)]
         [DataRow(0, 2, 1, 0, 0, 240)]
         [DataRow(1, 2, 10, 0, 62, 10)]
@@ -245,7 +244,7 @@ namespace TimeTests1
             Assert.IsTrue(t1 <= t2);
         }
 
-        [TestMethod, TestCategory("Comparing")]
+        [DataTestMethod, TestCategory("Comparing")]
         [DataRow(12, 00, 00, 00, 00, 43200)]
         [DataRow(0, 2, 1, 0, 2, 0)]
         [DataRow(15, 21, 10, 0, 63, 10)]
@@ -375,7 +374,7 @@ namespace TimeTests1
             var t2 = t * -1;
         }
 
-        [TestMethod, TestCategory("Subtraction")]
+        [TestMethod, TestCategory("Addition")]
         public void AddingDays_ToTimePeriod()
         {
             int days = 2;
