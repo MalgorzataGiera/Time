@@ -340,19 +340,19 @@ namespace TimeTests1
         [TestMethod, TestCategory("Subtraction")]
         public void StaticMethod_SubstructingTimePeriod()
         {
-            var t = new Time(0, 0, 0);
+            var t = new TimePeriod(0, 0, 0);
             var tPeriod = new TimePeriod(0, 1, 1);
-            var expectedNewTime = new Time(23, 58, 59);
-            Assert.AreEqual(expectedNewTime, Time.Minus(t, tPeriod));
+            var expectedNewTimePeriod = new TimePeriod(23, 58, 59);
+            Assert.AreEqual(expectedNewTimePeriod, TimePeriod.Minus(t, tPeriod));
         }
 
         [TestMethod, TestCategory("Subtraction")]
         public void MinusOperator()
         {
-            var t = new Time(0, 0, 0);
+            var t = new TimePeriod(0, 0, 0);
             var tPeriod = new TimePeriod(0, 1, 1);
-            var expectedNewTime = new Time(23, 58, 59);
-            Assert.AreEqual(expectedNewTime, t - tPeriod);
+            var expectedNewTimePeriod = new TimePeriod(23, 58, 59);
+            Assert.AreEqual(expectedNewTimePeriod, t - tPeriod);
         }
 
         [DataTestMethod, TestCategory("Multiplication")]
@@ -373,6 +373,15 @@ namespace TimeTests1
         {
             var t = new TimePeriod(1, 1, 1);
             var t2 = t * -1;
+        }
+
+        [TestMethod, TestCategory("Subtraction")]
+        public void AddingDays_ToTimePeriod()
+        {
+            int days = 2;
+            var tPeriod = new TimePeriod(0, 1, 0);
+            var expectedNewTimePeriod = new TimePeriod(48, 1, 0);
+            Assert.AreEqual(expectedNewTimePeriod, tPeriod.Plus(days));
         }
         #endregion
     }

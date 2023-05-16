@@ -110,5 +110,16 @@ namespace TimeLib
             var s = newTimeInSeconds % 60;
             return new TimePeriod(h, m, s);
         }
+
+        public TimePeriod Plus(int numberOfDays)
+        {
+            var sumOfSeconds = NumberOfSeconds + numberOfDays * 24 * 3600;
+            var h = sumOfSeconds / 3600;
+            var m = (sumOfSeconds % 3600) / 60;
+            var s = sumOfSeconds % 60;
+            return new TimePeriod(h, m, s);
+        }
+
+
     }
 }
