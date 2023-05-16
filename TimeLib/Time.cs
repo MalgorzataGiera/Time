@@ -24,66 +24,39 @@ namespace TimeLib
         {
             char[] chars = { ':', '.' };
             string[] data = s.Split(chars, StringSplitOptions.RemoveEmptyEntries);
-            if (data.Length > 3) throw new FormatException("You cannot enter more than 3 parameters");
+            if (data.Length != 3) throw new FormatException("You cannot enter more than 3 parameters");
             if (byte.Parse(data[0]) > 23 || byte.Parse(data[1]) > 59 || byte.Parse(data[2]) > 59) throw new ArgumentOutOfRangeException();
-            Hours = byte.Parse(data[0]);
-            Minutes = byte.Parse(data[1]);
-            Seconds = byte.Parse(data[2]);
+            var HourIsNumber = Byte.TryParse(data[0], out byte hours);
+            var MinuteIsNumber = Byte.TryParse(data[1], out byte minutes); 
+            var SecondIsNumber = Byte.TryParse(data[2], out byte seconds);
+            Hours = hours;
+            Minutes = minutes;
+            Seconds = seconds;
         }
-        public override string ToString()
-        {
-            return String.Format("{0:d2}:{1:d2}:{2:d2}", Hours, Minutes, Seconds);
-        }
-
+        public override string ToString() => String.Format("{0:d2}:{1:d2}:{2:d2}", Hours, Minutes, Seconds);
+        
         public override bool Equals(object? obj) => obj is Time time && Equals(time);
 
         public bool Equals(Time other) => (Hours, Minutes, Seconds) == (other.Hours, other.Minutes, other.Seconds);
 
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(Hours, Minutes, Seconds);
-        }
-
-        public static bool operator ==(Time left, Time right)
-        {
-            return left.Equals(right);
-        }
-
-        public static bool operator !=(Time left, Time right)
-        {
-            return !(left == right);
-        }
-
-        public int CompareTo(Time other)
-        {
-            return (this.TimeInSeconds()).CompareTo(other.TimeInSeconds());
-        }
-
-        public static bool operator <(Time left, Time right)
-        {
-            return left.CompareTo(right) < 0;
-        }
-
-        public static bool operator <=(Time left, Time right)
-        {
-            return left.CompareTo(right) <= 0;
-        }
-
-        public static bool operator >(Time left, Time right)
-        {
-            return left.CompareTo(right) > 0;
-        }
-
-        public static bool operator >=(Time left, Time right)
-        {
-            return left.CompareTo(right) >= 0;
-        }
-
-        public int TimeInSeconds()
-        {
-            return this.Seconds + this.Minutes * 60 + this.Hours * 3600;
-        }
-
+        public override int GetHashCode() => HashCode.Combine(Hours, Minutes, Seconds);
+        
+        public static bool operator ==(Time left, Time right) => left.Equals(right);
+        
+        public static bool operator !=(Time left, Time right) => !(left == right);
+        
+        public int CompareTo(Time other) => TimeInSeconds().CompareTo(other.TimeInSeconds());
+        
+        public static bool operator <(Time left, Time right) => left.CompareTo(right) < 0;
+        
+        public static bool operator <=(Time left, Time right) => left.CompareTo(right) <= 0;
+        
+        public static bool operator >(Time left, Time right) => left.CompareTo(right) > 0;
+        
+        public static bool operator >=(Time left, Time right) => left.CompareTo(right) >= 0;
+        
+        public int TimeInSeconds() => Seconds + Minutes * 60 + Hours * 3600;
+        
         public Time Plus(TimePeriod t)
         {
             var sumOfSeconds = TimeInSeconds() + t.NumberOfSeconds;
